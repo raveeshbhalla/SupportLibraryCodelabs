@@ -1,8 +1,26 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/material_blue_grey_800</item>
+        <item name="colorPrimaryDark">@color/material_blue_grey_950</item>
+        <item name="android:colorPrimary">@color/material_blue_grey_800</item>
+        <item name="android:colorPrimaryDark">@color/material_blue_grey_950</item>
+        <item name="actionBarTheme">@style/CustomActionBar</item>
+        <item name="android:actionBarTheme">@style/CustomActionBar</item>
+    </style>
+
+    <style name="CustomActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Used to for the title of the Toolbar -->
+        <item name="android:textColorPrimary">#fff</item>
+        <!-- Used to for the title of the Toolbar when parent is Theme.AppCompat.Light -->
+        <item name="android:textColorPrimaryInverse">#fff</item>
+        <!-- Used to color the text of the action menu icons -->
+        <item name="android:textColorSecondary">#fff</item>
+        <!-- Used to color the overflow menu icon -->
+        <item name="actionMenuTextColor">#fff</item>
+        <!-- Color of the Toolbar -->
+        <item name="android:background">@color/material_blue_grey_800</item>
     </style>
 
 </resources>
