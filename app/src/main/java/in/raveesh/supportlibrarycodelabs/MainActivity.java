@@ -2,7 +2,6 @@ package in.raveesh.supportlibrarycodelabs;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -82,15 +81,7 @@ public class MainActivity extends AppCompatActivity {
         edit.putString("surname", surName.getText().toString());
         edit.putString("address", address.getText().toString());
         edit.apply();
-        Snackbar.make(root, "Saved Details", Snackbar.LENGTH_LONG)
-                .setAction("Clear", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        clearValues();
-                        setStoredValues();
-                    }
-                })
-                .show();
+        Toast.makeText(this, "Saved Details", Toast.LENGTH_LONG).show();
     }
 
     private void setStoredValues() {
