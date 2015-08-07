@@ -8,7 +8,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         surName = (EditText) findViewById(R.id.surName);
         address = (EditText) findViewById(R.id.address);
         fab = (FloatingActionButton) findViewById(R.id.fab);
-
+        fab.hide();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +69,29 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         mDrawerToggle.syncState();
+
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                fab.show();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+
+        firstName.addTextChangedListener(textWatcher);
+        surName.addTextChangedListener(textWatcher);
+        address.addTextChangedListener(textWatcher);
+
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     private void storeValues() {
@@ -81,9 +107,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         clearValues();
                         setStoredValues();
+                        fab.hide();
                     }
                 })
                 .show();
+        fab.hide();
     }
 
     private void setStoredValues() {
