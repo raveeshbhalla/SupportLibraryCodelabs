@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     EditText firstName, surName, address;
     RelativeLayout root;
     FloatingActionButton fab;
+    TextInputLayout firstNameLayout, secondNameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
         firstName = (EditText) findViewById(R.id.firstName);
         surName = (EditText) findViewById(R.id.surName);
         address = (EditText) findViewById(R.id.address);
+
+        firstNameLayout = (TextInputLayout)findViewById(R.id.firstNameLayout);
+        secondNameLayout = (TextInputLayout)findViewById(R.id.secondNameLayout);
+
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.hide();
         fab.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +84,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 fab.show();
+                if (surName.getText().toString().trim().length()>0) {
+                    secondNameLayout.setError("");
+                }
+                if (firstName.getText().toString().trim().length()>0) {
+                    firstNameLayout.setError("");
+                }
             }
 
             @Override
@@ -93,23 +104,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void storeValues() {
-        SharedPreferences prefs = this.getSharedPreferences("stored", MODE_PRIVATE);
-        SharedPreferences.Editor edit = prefs.edit();
-        edit.putString("firstname", firstName.getText().toString());
-        edit.putString("surname", surName.getText().toString());
-        edit.putString("address", address.getText().toString());
-        edit.apply();
-        Snackbar.make(root, "Saved Details", Snackbar.LENGTH_LONG)
-                .setAction("Clear", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        clearValues();
-                        setStoredValues();
-                        fab.hide();
-                    }
-                })
-                .show();
-        fab.hide();
+        if (firstName.getText().toString().trim().length() == 0){
+            firstNameLayout.setError("First Name is required");
+            return;
+        }
+        else if(surName.getText().toString().trim().length() == 0){
+            secondNameLayout.setError("Surname is required");
+            return;
+        }
+        else {
+            SharedPreferences prefs = this.getSharedPreferences("stored", MODE_PRIVATE);
+            SharedPreferences.Editor edit = prefs.edit();
+            edit.putString("firstname", firstName.getText().toString());
+            edit.putString("surname", surName.getText().toString());
+            edit.putString("address", address.getText().toString());
+            edit.apply();
+            Snackbar.make(root, "Saved Details", Snackbar.LENGTH_LONG)
+                    .setAction("Clear", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            clearValues();
+                            setStoredValues();
+                            fab.hide();
+                        }
+                    })
+                    .show();
+            fab.hide();
+        }
     }
 
     private void setStoredValues() {
