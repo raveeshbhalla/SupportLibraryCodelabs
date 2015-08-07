@@ -24,43 +24,63 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/toolbar"
             android:layout_margin="@dimen/activity_vertical_margin">
+
             <ImageView
                 android:id="@+id/profile"
                 android:layout_width="@dimen/profile_photo_size"
                 android:layout_height="@dimen/profile_photo_size"
-                android:src="@drawable/photo"/>
-            <EditText
-                android:layout_marginLeft="@dimen/activity_vertical_margin"
-                android:id="@+id/firstName"
+                android:src="@drawable/photo" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/firstNameLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/profile"
-                android:hint="@string/first_name"/>
-            <EditText
                 android:layout_marginLeft="@dimen/activity_vertical_margin"
-                android:id="@+id/surName"
-                android:layout_below="@+id/firstName"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_toRightOf="@+id/profile">
+
+                <EditText
+                    android:id="@+id/firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/first_name" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/profile"
-                android:hint="@string/second_name"/>
-            <EditText
+                android:layout_below="@+id/firstNameLayout"
                 android:layout_marginLeft="@dimen/activity_vertical_margin"
-                android:id="@+id/address"
+                android:layout_toRightOf="@+id/profile">
+
+                <EditText
+                    android:id="@+id/surName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/second_name" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/profile"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/address"/>
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/address" />
+            </android.support.design.widget.TextInputLayout>
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab"
-                app:fabSize="normal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/ic_check"/>
+                android:src="@drawable/ic_check"
+                app:fabSize="normal" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -96,15 +116,17 @@
                     android:layout_width="@dimen/left_drawer_icon"
                     android:layout_height="@dimen/left_drawer_icon"
                     android:src="@drawable/ic_favorite"
-                    app:paint="@color/primary_text_default_material_light"/>
+                    app:paint="@color/primary_text_default_material_light" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/drawer_label_left_margin"
                     android:text="Favorites"
-                    android:textColor="@color/primary_text_default_material_light"/>
+                    android:textColor="@color/primary_text_default_material_light" />
             </LinearLayout>
         </FrameLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -122,15 +144,17 @@
                     android:layout_width="@dimen/left_drawer_icon"
                     android:layout_height="@dimen/left_drawer_icon"
                     android:src="@drawable/ic_email"
-                    app:paint="@color/primary_text_default_material_light"/>
+                    app:paint="@color/primary_text_default_material_light" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/drawer_label_left_margin"
                     android:text="Email"
-                    android:textColor="@color/primary_text_default_material_light"/>
+                    android:textColor="@color/primary_text_default_material_light" />
             </LinearLayout>
         </FrameLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,13 +172,14 @@
                     android:layout_width="@dimen/left_drawer_icon"
                     android:layout_height="@dimen/left_drawer_icon"
                     android:src="@drawable/ic_call"
-                    app:paint="@color/primary_text_default_material_light"/>
+                    app:paint="@color/primary_text_default_material_light" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/drawer_label_left_margin"
                     android:text="Phone"
-                    android:textColor="@color/primary_text_default_material_light"/>
+                    android:textColor="@color/primary_text_default_material_light" />
             </LinearLayout>
         </FrameLayout>
 

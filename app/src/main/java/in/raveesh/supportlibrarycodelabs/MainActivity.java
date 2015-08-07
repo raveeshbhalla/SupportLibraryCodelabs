@@ -90,8 +90,6 @@ public class MainActivity extends AppCompatActivity {
         firstName.addTextChangedListener(textWatcher);
         surName.addTextChangedListener(textWatcher);
         address.addTextChangedListener(textWatcher);
-
-        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     private void storeValues() {
