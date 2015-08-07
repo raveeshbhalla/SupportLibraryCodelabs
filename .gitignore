@@ -1,0 +1,15 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+
+SupportLibraryCodelabs.iml
+gradlew.bat
+gradlew
+build
+app/build
+app/app.iml
+.idea
