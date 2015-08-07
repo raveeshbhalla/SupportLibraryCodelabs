@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
@@ -89,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
         firstName.addTextChangedListener(textWatcher);
         surName.addTextChangedListener(textWatcher);
         address.addTextChangedListener(textWatcher);
+
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     private void storeValues() {
