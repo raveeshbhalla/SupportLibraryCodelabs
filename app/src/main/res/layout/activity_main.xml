@@ -17,12 +17,22 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/abc_action_bar_default_height_material"
             app:theme="@style/CustomActionBar" />
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorHeight="4dp"/>
 
         <RelativeLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/toolbar"
+            android:layout_below="@+id/tabs"
             android:layout_margin="@dimen/activity_vertical_margin">
 
             <ImageView
@@ -84,12 +94,5 @@
                 app:fabSize="normal" />
         </RelativeLayout>
     </RelativeLayout>
-
-    <android.support.design.widget.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/headerlayout"
-        app:menu="@menu/drawer"/>
 
 </android.support.v4.widget.DrawerLayout>

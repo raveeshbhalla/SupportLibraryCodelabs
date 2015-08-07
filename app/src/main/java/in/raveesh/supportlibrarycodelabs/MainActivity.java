@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout root;
     FloatingActionButton fab;
     TextInputLayout firstNameLayout, secondNameLayout;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,11 @@ public class MainActivity extends AppCompatActivity {
         firstName = (EditText) findViewById(R.id.firstName);
         surName = (EditText) findViewById(R.id.surName);
         address = (EditText) findViewById(R.id.address);
+
+        tabLayout = (TabLayout)findViewById(R.id.tabs);
+        tabLayout.addTab(tabLayout.newTab().setText("Favorites"));
+        tabLayout.addTab(tabLayout.newTab().setText("Email"));
+        tabLayout.addTab(tabLayout.newTab().setText("Phone"));
 
         firstNameLayout = (TextInputLayout)findViewById(R.id.firstNameLayout);
         secondNameLayout = (TextInputLayout)findViewById(R.id.secondNameLayout);
