@@ -86,9 +86,11 @@ public class MainActivity extends AppCompatActivity {
                 fab.show();
                 if (surName.getText().toString().trim().length()>0) {
                     secondNameLayout.setError("");
+                    secondNameLayout.setErrorEnabled(false);
                 }
                 if (firstName.getText().toString().trim().length()>0) {
                     firstNameLayout.setError("");
+                    firstNameLayout.setErrorEnabled(false);
                 }
             }
 
