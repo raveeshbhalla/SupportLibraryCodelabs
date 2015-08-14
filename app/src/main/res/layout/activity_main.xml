@@ -85,105 +85,11 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/navigation_drawer"
-        android:layout_width="@dimen/navigation_drawer_width"
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/background_material_light"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/banner" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/minimum_clickable_size"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <in.raveesh.proteus.ImageView
-                    android:layout_width="@dimen/left_drawer_icon"
-                    android:layout_height="@dimen/left_drawer_icon"
-                    android:src="@drawable/ic_favorite"
-                    app:paint="@color/primary_text_default_material_light" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/drawer_label_left_margin"
-                    android:text="Favorites"
-                    android:textColor="@color/primary_text_default_material_light" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/minimum_clickable_size"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <in.raveesh.proteus.ImageView
-                    android:layout_width="@dimen/left_drawer_icon"
-                    android:layout_height="@dimen/left_drawer_icon"
-                    android:src="@drawable/ic_email"
-                    app:paint="@color/primary_text_default_material_light" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/drawer_label_left_margin"
-                    android:text="Email"
-                    android:textColor="@color/primary_text_default_material_light" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/minimum_clickable_size"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <in.raveesh.proteus.ImageView
-                    android:layout_width="@dimen/left_drawer_icon"
-                    android:layout_height="@dimen/left_drawer_icon"
-                    android:src="@drawable/ic_call"
-                    app:paint="@color/primary_text_default_material_light" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/drawer_label_left_margin"
-                    android:text="Phone"
-                    android:textColor="@color/primary_text_default_material_light" />
-            </LinearLayout>
-        </FrameLayout>
-
-    </LinearLayout>
+        app:headerLayout="@layout/headerlayout"
+        app:menu="@menu/drawer"/>
 
 </android.support.v4.widget.DrawerLayout>
